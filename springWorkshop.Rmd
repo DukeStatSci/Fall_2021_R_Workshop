@@ -212,9 +212,9 @@ quiz(
   question("How many variables are included in this data set?",
     answer("2"),
     answer("9"),
-    answer("10"),
+    answer("10", correct = TRUE),
     answer("82"),
-    answer("53940", correct = TRUE),
+    answer("53940"),
     allow_retry = TRUE
   )
 )
@@ -304,7 +304,7 @@ Notice the new column on the end of our table?
 
 ### Filtering 
 
-We can use just part of the dataset by filtering. Here, we are going to filter on a particular value of cut and color and plot price vs carat. Try filtering another variable.
+We can use just part of the dataset by filtering. Here, we are going to filter on a particular value of cut and color. Try filtering another variable.
 
 ```{r try-filtering-diamonds, exercise = TRUE}
 diamonds %>%

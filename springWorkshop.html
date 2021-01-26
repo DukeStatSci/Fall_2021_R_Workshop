@@ -277,7 +277,7 @@ diamonds</code></pre>
 </div>
 <div id="section-filtering" class="section level3">
 <h3>Filtering</h3>
-<p>We can use just part of the dataset by filtering. Here, we are going to filter on a particular value of cut and color and plot price vs carat. Try filtering another variable.</p>
+<p>We can use just part of the dataset by filtering. Here, we are going to filter on a particular value of cut and color. Try filtering another variable.</p>
 <div class="tutorial-exercise" data-label="try-filtering-diamonds" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>diamonds %&gt;%
   filter(cut == &quot;Fair&quot; &amp; color ==&quot;G&quot;)</code></pre>
@@ -398,21 +398,21 @@ learnr:::store_exercise_setup_chunk("__setup__", c("library(learnr)", "library(t
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "quiz1-1", question = structure("How many variables are included in this data set?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_28a7eb9", 
+"character")), answers = list(structure(list(id = "lnr_ans_527cdc2", 
     option = "2", value = "2", label = structure("2", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_680985d", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_fa419c", 
     option = "9", value = "9", label = structure("9", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7c3a9c0", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c041036", 
     option = "10", value = "10", label = structure("10", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f564216", 
+    "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4a72299", 
     option = "82", value = "82", label = structure("82", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a47f72c", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_df263c1", 
     option = "53940", value = "53940", label = structure("53940", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
+    "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
 "character")), try_again = structure("Try Again", html = TRUE, class = c("html", 
 "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
@@ -421,7 +421,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "quiz1-1-answer", question = "quiz1-1"), loading = structure("<strong>Loading:<\u002fstrong> \nHow many variables are included in this data set?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1534233410.28557, options = list()), class = c("learnr_radio", 
+    seed = 908594829.576903, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
@@ -531,17 +531,17 @@ learnr:::store_exercise_cache("new-column", list(setup = NULL, chunks = list(lis
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "quiz2-1", question = structure("What command would you use to extract just the data on diamond length? ", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_9bdca1f", 
+"character")), answers = list(structure(list(id = "lnr_ans_32c389e", 
     option = "diamonds %>% choose(x)", value = "diamonds %>% choose(x)", 
     label = structure("diamonds %&gt;% choose(x)", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_89fda8e", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2a39f82", 
     option = "diamonds %>% x", value = "diamonds %>% x", label = structure("diamonds %&gt;% x", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8afc1e5", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5b5b327", 
     option = "diamonds[x]", value = "diamonds[x]", label = structure("diamonds[x]", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c77b21e", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a2b1f8", 
     option = "diamonds %>% select(x)", value = "diamonds %>% select(x)", 
     label = structure("diamonds %&gt;% select(x)", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
@@ -553,7 +553,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "quiz2-1-answer", question = "quiz2-1"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat command would you use to extract just the data on diamond length? \n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 325598649.348381, options = list()), class = c("learnr_radio", 
+    seed = 1273063517.90718, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
