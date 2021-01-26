@@ -1,1 +1,2 @@
-# Spring_2021_Workshop
+# Spring 2021 Workshop
+#### George Lindner
