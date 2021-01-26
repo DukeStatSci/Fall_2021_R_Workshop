@@ -11,6 +11,7 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(tidyverse)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -95,13 +96,13 @@ library(usethis)
 
 To do so, you can 
 
-- click on the green arrow at the top of the code chunk in the R Markdown (Rmd) 
-file, or
-- highlight these lines, and hit the **Run** button on the upper right corner of the 
+* Click on the green arrow at the top of the code chunk in the R Markdown (Rmd) 
+file
+* Highlight these lines, and hit the **Run** button on the upper right corner of the 
 pane, or
-- hit `CTRL` + `ENTER` to run the current line of code
-- hit `CTRL` + `SHIFT` + `ENTER` to run the current chunk of code
-- type the code in the console.
+* Hit `CTRL` + `ENTER` to run the current line of code
+* Hit `CTRL` + `SHIFT` + `ENTER` to run the current chunk of code
+* Type the code in the console.
 
 Going forward you will be asked to load any relevant packages at the beginning
 of each lab.

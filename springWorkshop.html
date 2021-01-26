@@ -161,11 +161,11 @@ $(document).ready(function () {
 library(usethis)</code></pre>
 <p>To do so, you can</p>
 <ul>
-<li>click on the green arrow at the top of the code chunk in the R Markdown (Rmd) file, or</li>
-<li>highlight these lines, and hit the <strong>Run</strong> button on the upper right corner of the pane, or</li>
-<li>hit <code>CTRL</code> + <code>ENTER</code> to run the current line of code</li>
-<li>hit <code>CTRL</code> + <code>SHIFT</code> + <code>ENTER</code> to run the current chunk of code</li>
-<li>type the code in the console.</li>
+<li>Click on the green arrow at the top of the code chunk in the R Markdown (Rmd) file</li>
+<li>Highlight these lines, and hit the <strong>Run</strong> button on the upper right corner of the pane, or</li>
+<li>Hit <code>CTRL</code> + <code>ENTER</code> to run the current line of code</li>
+<li>Hit <code>CTRL</code> + <code>SHIFT</code> + <code>ENTER</code> to run the current chunk of code</li>
+<li>Type the code in the console.</li>
 </ul>
 <p>Going forward you will be asked to load any relevant packages at the beginning of each lab.</p>
 </div>
@@ -368,6 +368,7 @@ diamonds</code></pre>
 This is derived from the <code>Learning R Tutorials</code> website. Thanks to Joan Durso and Maria Tackett for all their help. 
 <script type="application/shiny-prerendered" data-context="server-start">
 library(learnr)
+library(tidyverse)
 knitr::opts_chunk$set(echo = FALSE)
 </script>
  
@@ -386,24 +387,30 @@ session$onSessionEnded(function() {
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_setup_chunk("__setup__", c("library(learnr)", "knitr::opts_chunk$set(echo = FALSE)"), overwrite = FALSE)
+learnr:::store_exercise_setup_chunk("__setup__", c("library(learnr)", "library(tidyverse)", "knitr::opts_chunk$set(echo = FALSE)"
+), overwrite = FALSE)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::store_exercise_setup_chunk("__setup__", c("library(learnr)", "library(tidyverse)", "knitr::opts_chunk$set(echo = FALSE)"
+), overwrite = FALSE)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "quiz1-1", question = structure("How many variables are included in this data set?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_44a1a12", 
+"character")), answers = list(structure(list(id = "lnr_ans_28a7eb9", 
     option = "2", value = "2", label = structure("2", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b7f4076", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_680985d", 
     option = "9", value = "9", label = structure("9", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e2f63a9", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7c3a9c0", 
     option = "10", value = "10", label = structure("10", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b3b04db", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f564216", 
     option = "82", value = "82", label = structure("82", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a97e00d", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a47f72c", 
     option = "53940", value = "53940", label = structure("53940", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -414,7 +421,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "quiz1-1-answer", question = "quiz1-1"), loading = structure("<strong>Loading:<\u002fstrong> \nHow many variables are included in this data set?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1864531423.63176, options = list()), class = c("learnr_radio", 
+    seed = 1534233410.28557, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
@@ -524,17 +531,17 @@ learnr:::store_exercise_cache("new-column", list(setup = NULL, chunks = list(lis
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "quiz2-1", question = structure("What command would you use to extract just the data on diamond length? ", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_a9ca3d6", 
+"character")), answers = list(structure(list(id = "lnr_ans_9bdca1f", 
     option = "diamonds %>% choose(x)", value = "diamonds %>% choose(x)", 
     label = structure("diamonds %&gt;% choose(x)", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_fb8460f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_89fda8e", 
     option = "diamonds %>% x", value = "diamonds %>% x", label = structure("diamonds %&gt;% x", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_dc5be84", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8afc1e5", 
     option = "diamonds[x]", value = "diamonds[x]", label = structure("diamonds[x]", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_dfd575d", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c77b21e", 
     option = "diamonds %>% select(x)", value = "diamonds %>% select(x)", 
     label = structure("diamonds %&gt;% select(x)", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
@@ -546,7 +553,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "quiz2-1-answer", question = "quiz2-1"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat command would you use to extract just the data on diamond length? \n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1448798035.32535, options = list()), class = c("learnr_radio", 
+    seed = 325598649.348381, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
