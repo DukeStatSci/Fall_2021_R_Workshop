@@ -10,6 +10,8 @@ runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
+
+#install.packages("learnr")
 library(learnr)
 library(tidyverse)
 knitr::opts_chunk$set(echo = FALSE)
@@ -109,15 +111,38 @@ of each lab.
 
 ## Git and Github
 
+
+### Setting Up GitHub
+
 You will use GitHub to obtain the RMarkdown or .Rmd file for this workshop.  If you already 
-have a GitHub account, great!  If not, take a minute to start one.  But first, some user name advice...
+have a GitHub account, great!  If not, take a minute to create one.  But first, some user name advice...
 
 Jenny Bryan is an RStudio software engineer who wrote 'Happy Git and Github for the useR'.
 She was a keynote speaker at the [RStudio Conference in 2020](https://rstudio.com/resources/rstudioconf-2020/object-of-type-closure-is-not-subsettable/).   
 Her page of advice on creating a free Github account and choosing a user name that works is [here.](https://happygitwithr.com/github-acct.html) Register your free account.  
 You'll have to confirm the request in email.  
 
-Now the workshop facilitators will help you fork the repository that contains the software you need. 
+
+### Downloading Git
+
+Git is used to integrate GitHub and Version Control into your RStudio IDE. 
+
+Install Git from [this link.](http://git-scm.com/downloads) 
+
+Once you've finished the Git installation, do the following:
+
+1. Click **Tools** and **Global Options**
+2. Click **Git/SVN** on the side panel
+3. Check the box for **Enable version control interface for RStudio projects**
+4. If it is not there already - enter the path for Git. (If you do not know the path click on your **Terminal** and type in `which git` and copy the output)
+
+![](images/git.jpeg){width=50%}
+
+
+If you are struggling to get Git set up in RStudio try following the steps in [this link.](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) or reach out to one of the hosts.
+
+
+### Configure your GitHub Account into RStudio
 
 You will use the `use_git_config()` function from the `usethis` package.
 
@@ -138,23 +163,38 @@ use_git_config(user.name="george-lindner", user.email="george.lindner@duke.edu")
 
 Take a minute to configure your GitHub account into RStudio!
 
+
+### Fork and Clone Spring Workshop
+
 Now on GitHub, search for the following repository: https://github.com/DukeStatSci/Spring_2021_Workshop
 
+First, **Fork** the repository by clicking Fork in the upper right-hand portion of the screen. Forking allows you to make changes to the repository with Version Control, without changing the repository for others. 
+
+
+![](images/fork.jpeg){width=90%}
+
+``
+
 Click on the green `Code` button and then click on the clipboard icon next to the URL to copy the repository link.
+
+``
+
 ![](images/clone-repo.jpeg){width=90%}
 
 Now open your RStudio window.
 
 Click `File` $\rightarrow$ `New Project` $\rightarrow$ `Version Control` $\rightarrow$ `Git` and hit `paste` in the `Repository URL` field. Now click `Create Project`. 
 
-To view the output that I am currently sharing with you, click on the file `springWorkshop.Rmd` and **Knit** the file.
+To view the output that I am currently sharing with you, click on the file `springWorkshop.Rmd` and click **Run Document** on the file.
+
+**Note:** While this .Rmd file has a **Run Document** button, standard .Rmd files will have a **Knit** button. This accomplishes the same thing; it creates a .HTML or .PDF output for your code. 
 
 ## Diving into the Data
 
 We are going to use a dataset called `diamonds`. This dataset can be found in the `ggplot2` package! Simply run  `library(tidyverse)` or `library(ggplot2)` if you haven't already, and then call `data(diamonds)` to load in the dataset.
 To get you started, run the following command to load the data and to inspect the first ten rows of the file.
 
-```{r load-diamonds-data}
+```{r load-diamonds-data, echo = TRUE}
 # Load the diamonds file
 data(diamonds)
 
@@ -180,7 +220,7 @@ the objects in your workspace. This will bring up an alternative display of the
 data set in the *Data Viewer* (upper left window). You can close the data viewer
 by clicking on the *x* in the upper lefthand corner.
 
-What you should see are eleven columns of data, each row representing a 
+What you should see are ten columns of data, each row representing a 
 different diamond: the first entry in each row is simply the row number (an index 
 we can use to access the data from individual stones if we want), the second is 
 price in dollars, and the third is the weight in carats of that gem.
@@ -273,7 +313,7 @@ the following line of code. Reading the code in plain English: From the diamonds
 **Try selecting a different column to observe and only view the first 50 rows.**
 
 ```{r new-column, exercise=TRUE}
-
+?diamonds
 ```
 
 ```{r quiz2}
@@ -409,6 +449,36 @@ For help with plotting with the `ggplot2` package, check out [this cheatsheet!](
 best (and easiest) way to learn the syntax is to take a look at the sample plots 
 provided on that page, and modify the code to fit your needs. 
 
+## Submitting Your Work
+
+Now that you've gotten some practice coding - let's go over how to submit your work for classes. Your teaches will probably ask you to submit an **HTML** or **PDF** file. We will briefly go over how to create these outputs from an .Rmd file and from an .R script.
+
+### Submitting From an .Rmd File
+
+Turning your .Rmd file into an **HTML** or **PDF** can be accomplished from the following steps.
+
+1. Click **File** $\rightarrow$ **New File** $\rightarrow$ **R Markdown...**
+2. Choose HTML or PDF output, enter a **Title** and **Author** and click **OK**
+3. When you are finished with the assignment, **Knit** the file. 
+4. The file will now appear in the folder in the lower right-hand panel. 
+
+![](images/html-pdf.jpeg){width=50%}
+
+
+### Submitting From an .R Script
+
+1. Click **File** $\rightarrow$ **New File** $\rightarrow$ **R Script**
+2. When you are finished with the assignment, click **File** $\rightarrow$ **Compile Report**. 
+3. Choose **PDF** or **HTML** and click **Compile**
+4. The file will now appear in the folder in the lower right-hand panel.
+
+![](images/r-script.jpeg){width=40%}
+
+### Error when Knitting
+
+Sometimes, your code will work in your .Rmd or .R script but will not compile. This is because when you **knit**, **compile**, or **run document**, your machine is running the code line by line. If one of your lines of code was entered in the console instead of in the file, you will run into an error. 
+
+R provides thorough error messages letting you know the issue at hand. Very often, it is because the data or a package is not loaded into the file. There are a lot of great resources online for troubleshooting error messages, and when you are stuck go ahead and copy your error message into Google or visit your professor/TA's office hours. 
 
 
 ## Resources for Learning R
@@ -420,6 +490,8 @@ might find the following tips and resources helpful.
 data visualization) extensively. If you are googling for R code, make sure
 to also include these package names in your search query. For example, instead
 of googling "scatterplot in R", google "scatterplot in R with ggplot2".
+
+* Duke offers Coursera courses for free to Duke students through this link: https://online.duke.edu/coursera-for-duke/
 
 * There is a terrific resource on Medium called Towards Data Science, and you can find good information there, although you may have a limited number of free articles to read. https://towardsdatascience.com/data-science/home
 
