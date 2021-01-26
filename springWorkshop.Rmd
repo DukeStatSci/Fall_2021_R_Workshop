@@ -88,7 +88,7 @@ Next, you need to load the packages in your working environment. We do this with
 the `library` function. Note that you only need to **install** packages once, but
 you need to **load** them each time you relaunch RStudio.
 
-```{r load-packages, echo = TRUE, message = FALSE, warning = FALSE}
+```{r load-packages, eval = TRUE, echo = TRUE, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(usethis)
 ```
