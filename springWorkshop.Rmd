@@ -37,8 +37,6 @@ Look at the guidelines on Jenny Bryant's [Happy Git with R website](https://happ
 
 Create your git account and make sure you write down your username and password.
 
-Now in github.com, search for the following repository: https://github.com/DukeStatSci/Spring_2021_Workshop
-and have it ready. It's okay to go ahead and double click on the HTML file called intro-r.html and follow along.
 
 ## RStudio
 
@@ -138,6 +136,17 @@ use_git_config(user.name="george-lindner", user.email="george.lindner@duke.edu")
 ```
 
 Take a minute to configure your GitHub account into RStudio!
+
+Now on GitHub, search for the following repository: https://github.com/DukeStatSci/Spring_2021_Workshop
+
+Click on the green `Code` button and then click on the clipboard icon next to the URL to copy the repository link.
+![](images/clone-repo.jpeg){width=90%}
+
+Now open your RStudio window.
+
+Click `File` $\rightarrow$ `New Project` $\rightarrow$ `Version Control` $\rightarrow$ `Git` and hit `paste` in the `Repository URL` field. Now click `Create Project`. 
+
+To view the output that I am currently sharing with you, click on the file `springWorkshop.Rmd` and **Knit** the file.
 
 ## Diving into the Data
 

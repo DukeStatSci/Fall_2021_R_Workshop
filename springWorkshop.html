@@ -130,7 +130,6 @@ $(document).ready(function () {
 <h2>Getting Started</h2>
 <p>If you have not ever used GitHub, you will first need to go in and create an account. Look at the guidelines on Jenny Bryant’s <a href="https://happygitwithr.com/github-acct.html">Happy Git with R website</a>.</p>
 <p>Create your git account and make sure you write down your username and password.</p>
-<p>Now in github.com, search for the following repository: <a href="https://github.com/DukeStatSci/Spring_2021_Workshop" class="uri">https://github.com/DukeStatSci/Spring_2021_Workshop</a> and have it ready. It’s okay to go ahead and double click on the HTML file called intro-r.html and follow along.</p>
 </div>
 <div id="section-rstudio" class="section level2">
 <h2>RStudio</h2>
@@ -186,6 +185,11 @@ use_git_config(user.name = &quot;GitHub username&quot;, user.email=&quot;your em
 <pre class="r"><code>library(usethis)
 use_git_config(user.name=&quot;george-lindner&quot;, user.email=&quot;george.lindner@duke.edu&quot;)</code></pre>
 <p>Take a minute to configure your GitHub account into RStudio!</p>
+<p>Now on GitHub, search for the following repository: <a href="https://github.com/DukeStatSci/Spring_2021_Workshop" class="uri">https://github.com/DukeStatSci/Spring_2021_Workshop</a></p>
+<p>Click on the green <code>Code</code> button and then click on the clipboard icon next to the URL to copy the repository link. <img src="images/clone-repo.jpeg" style="width:90.0%" /></p>
+<p>Now open your RStudio window.</p>
+<p>Click <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>New Project</code> <span class="math inline">\(\rightarrow\)</span> <code>Version Control</code> <span class="math inline">\(\rightarrow\)</span> <code>Git</code> and hit <code>paste</code> in the <code>Repository URL</code> field. Now click <code>Create Project</code>.</p>
+<p>To view the output that I am currently sharing with you, click on the file <code>springWorkshop.Rmd</code> and <strong>Knit</strong> the file.</p>
 </div>
 <div id="section-diving-into-the-data" class="section level2">
 <h2>Diving into the Data</h2>
@@ -387,19 +391,19 @@ learnr:::store_exercise_setup_chunk("__setup__", c("library(learnr)", "knitr::op
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "quiz1-1", question = structure("How many variables are included in this data set?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_1fd8f9d", 
+"character")), answers = list(structure(list(id = "lnr_ans_1c05c27", 
     option = "2", value = "2", label = structure("2", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8876c59", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d24f017", 
     option = "9", value = "9", label = structure("9", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2b37f54", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4650a5e", 
     option = "10", value = "10", label = structure("10", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7298e5a", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_87ada0e", 
     option = "82", value = "82", label = structure("82", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_db9a1b7", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c7092c5", 
     option = "53940", value = "53940", label = structure("53940", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -410,7 +414,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "quiz1-1-answer", question = "quiz1-1"), loading = structure("<strong>Loading:<\u002fstrong> \nHow many variables are included in this data set?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 261896940.878045, options = list()), class = c("learnr_radio", 
+    seed = 1217517879.43305, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
@@ -520,17 +524,17 @@ learnr:::store_exercise_cache("new-column", list(setup = NULL, chunks = list(lis
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "quiz2-1", question = structure("What command would you use to extract just the data on diamond length? ", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_f26341f", 
+"character")), answers = list(structure(list(id = "lnr_ans_66f30bc", 
     option = "diamonds %>% choose(x)", value = "diamonds %>% choose(x)", 
     label = structure("diamonds %&gt;% choose(x)", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b331183", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_dee7774", 
     option = "diamonds %>% x", value = "diamonds %>% x", label = structure("diamonds %&gt;% x", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b397ecd", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6b98b97", 
     option = "diamonds[x]", value = "diamonds[x]", label = structure("diamonds[x]", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a6072fd", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_db7a4b6", 
     option = "diamonds %>% select(x)", value = "diamonds %>% select(x)", 
     label = structure("diamonds %&gt;% select(x)", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
@@ -542,7 +546,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "quiz2-1-answer", question = "quiz2-1"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat command would you use to extract just the data on diamond length? \n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1721689208.69828, options = list()), class = c("learnr_radio", 
+    seed = 730443397.659861, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
