@@ -27,16 +27,23 @@ The materials here are a compilation of advice and instructions from your profes
 
 Here are some key ideas:
 
-If you are in the habit of saying you are not a coder, that stops here.   
+* If you are in the habit of saying you are not a coder, that stops here.   
 
-R is an open source programming language for statistical computing (http://cran-r-project.org).
+* R is an open source programming language for statistical computing (http://cran-r-project.org).
 
-RStudio is the IDE or Interactive Development Environment we use to work in R. RStudio is available open source, but their company also provides some cloud-based servers for working in their environment, known as RStudio in the Cloud.
+* RStudio is the IDE or Interactive Development Environment we use to work in R. RStudio is available open source, but their company also provides some cloud-based servers for working in their environment, known as RStudio in the Cloud.
 
 ## Getting Started
 
-If you have not ever used GitHub, you will first need to go in and create an account.
-Look at the guidelines on Jenny Bryant's [Happy Git with R website](https://happygitwithr.com/github-acct.html).
+### Creating GitHub Account
+
+If you have not ever used GitHub, you will first need to go in and create an account. You will use GitHub to obtain the RMarkdown or .Rmd file for this workshop.  If you already have a GitHub account, great!  If not, take a minute to create one.  But first, some user name advice...
+
+Jenny Bryan is an RStudio software engineer who wrote 'Happy Git and Github for the useR'.
+She was a keynote speaker at the [RStudio Conference in 2020](https://rstudio.com/resources/rstudioconf-2020/object-of-type-closure-is-not-subsettable/).   
+Her page of advice on creating a free Github account and choosing a user name that works is [here.](https://happygitwithr.com/github-acct.html) Register your free account.  
+You'll have to confirm the request in email.  
+
 
 Create your git account and make sure you write down your username and password.
 
@@ -110,17 +117,6 @@ Going forward you will be asked to load any relevant packages at the beginning
 of each lab.
 
 ## Git and Github
-
-
-### Setting Up GitHub
-
-You will use GitHub to obtain the RMarkdown or .Rmd file for this workshop.  If you already 
-have a GitHub account, great!  If not, take a minute to create one.  But first, some user name advice...
-
-Jenny Bryan is an RStudio software engineer who wrote 'Happy Git and Github for the useR'.
-She was a keynote speaker at the [RStudio Conference in 2020](https://rstudio.com/resources/rstudioconf-2020/object-of-type-closure-is-not-subsettable/).   
-Her page of advice on creating a free Github account and choosing a user name that works is [here.](https://happygitwithr.com/github-acct.html) Register your free account.  
-You'll have to confirm the request in email.  
 
 
 ### Downloading Git

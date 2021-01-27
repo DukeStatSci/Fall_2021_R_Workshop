@@ -122,14 +122,22 @@ $(document).ready(function () {
 <p>Your introductory StatSci course this semester will march you through a thorough introduction to using R for statistical science and data science purposes, as well as for many other practical applications. You should already be familiar with the environment you are going to use for your course, whether it is RStudio in the Cloud, a Docker container, or software installed on your own computer. Your instructor should have given you that information and you should be ready to use it.</p>
 <p>The materials here are a compilation of advice and instructions from your professors Curry Hilton, Victoria Ellison, Yue Jiang, Shawn Santo, Bob Eisinger, and especially Maria Tackett, Mine Cetinkaya-Rundel, and TAs including Becky Tang, Jennifer Wilson, Frances Hu, and many helpful resources.</p>
 <p>Here are some key ideas:</p>
-<p>If you are in the habit of saying you are not a coder, that stops here.</p>
-<p>R is an open source programming language for statistical computing (<a href="http://cran-r-project.org" class="uri">http://cran-r-project.org</a>).</p>
-<p>RStudio is the IDE or Interactive Development Environment we use to work in R. RStudio is available open source, but their company also provides some cloud-based servers for working in their environment, known as RStudio in the Cloud.</p>
+<ul>
+<li><p>If you are in the habit of saying you are not a coder, that stops here.</p></li>
+<li><p>R is an open source programming language for statistical computing (<a href="http://cran-r-project.org" class="uri">http://cran-r-project.org</a>).</p></li>
+<li><p>RStudio is the IDE or Interactive Development Environment we use to work in R. RStudio is available open source, but their company also provides some cloud-based servers for working in their environment, known as RStudio in the Cloud.</p></li>
+</ul>
 </div>
 <div id="section-getting-started" class="section level2">
 <h2>Getting Started</h2>
-<p>If you have not ever used GitHub, you will first need to go in and create an account. Look at the guidelines on Jenny Bryant’s <a href="https://happygitwithr.com/github-acct.html">Happy Git with R website</a>.</p>
+<div id="section-creating-github-account" class="section level3">
+<h3>Creating GitHub Account</h3>
+<p>If you have not ever used GitHub, you will first need to go in and create an account. You will use GitHub to obtain the RMarkdown or .Rmd file for this workshop. If you already have a GitHub account, great! If not, take a minute to create one. But first, some user name advice…</p>
+<p>Jenny Bryan is an RStudio software engineer who wrote ‘Happy Git and Github for the useR’. She was a keynote speaker at the <a href="https://rstudio.com/resources/rstudioconf-2020/object-of-type-closure-is-not-subsettable/">RStudio Conference in 2020</a>.<br />
+Her page of advice on creating a free Github account and choosing a user name that works is <a href="https://happygitwithr.com/github-acct.html">here.</a> Register your free account.<br />
+You’ll have to confirm the request in email.</p>
 <p>Create your git account and make sure you write down your username and password.</p>
+</div>
 </div>
 <div id="section-rstudio" class="section level2">
 <h2>RStudio</h2>
@@ -171,13 +179,6 @@ library(usethis)</code></pre>
 </div>
 <div id="section-git-and-github" class="section level2">
 <h2>Git and Github</h2>
-<div id="section-setting-up-github" class="section level3">
-<h3>Setting Up GitHub</h3>
-<p>You will use GitHub to obtain the RMarkdown or .Rmd file for this workshop. If you already have a GitHub account, great! If not, take a minute to create one. But first, some user name advice…</p>
-<p>Jenny Bryan is an RStudio software engineer who wrote ‘Happy Git and Github for the useR’. She was a keynote speaker at the <a href="https://rstudio.com/resources/rstudioconf-2020/object-of-type-closure-is-not-subsettable/">RStudio Conference in 2020</a>.<br />
-Her page of advice on creating a free Github account and choosing a user name that works is <a href="https://happygitwithr.com/github-acct.html">here.</a> Register your free account.<br />
-You’ll have to confirm the request in email.</p>
-</div>
 <div id="section-downloading-git" class="section level3">
 <h3>Downloading Git</h3>
 <p>Git is used to integrate GitHub and Version Control into your RStudio IDE.</p>
@@ -240,7 +241,7 @@ diamonds</code></pre>
 </ul>
 <p>This command instructs R to load some data. You should see that the workspace area in the upper righthand corner of the RStudio window now lists a data set called <code>diamonds</code> that has 53940 observations on 10 variables. As you interact with R, you will create a series of objects. Sometimes you load them as we have done here, and sometimes you create them yourself as the byproduct of a computation or some analysis you have performed.</p>
 <p>However printing the whole dataset in the console is not that useful. One advantage of RStudio is that it comes with a built-in data viewer. Click on the name <code>diamonds</code> in the <em>Environment</em> pane (upper right window) that lists the objects in your workspace. This will bring up an alternative display of the data set in the <em>Data Viewer</em> (upper left window). You can close the data viewer by clicking on the <em>x</em> in the upper lefthand corner.</p>
-<p>What you should see are eleven columns of data, each row representing a different diamond: the first entry in each row is simply the row number (an index we can use to access the data from individual stones if we want), the second is price in dollars, and the third is the weight in carats of that gem. Use the scrollbar on the right side of the console window to examine the complete data set.</p>
+<p>What you should see are ten columns of data, each row representing a different diamond: the first entry in each row is simply the row number (an index we can use to access the data from individual stones if we want), the second is price in dollars, and the third is the weight in carats of that gem. Use the scrollbar on the right side of the console window to examine the complete data set.</p>
 <p>Note that the row numbers in the first column are not part of the <code>diamonds</code> data. R adds them as part of its printout to help you make visual comparisons. You can think of them as the index that you see on the left side of a spreadsheet. In fact, the comparison to a spreadsheet will generally be helpful. R has stored the ‘diamonds’ data in a kind of spreadsheet or table called a <em>data frame</em>.</p>
 <p>You can see the dimensions of this data frame by typing:</p>
 <pre class="r"><code>dim(diamonds)</code></pre>
@@ -465,19 +466,19 @@ learnr:::store_exercise_setup_chunk("__setup__", c("", "#install.packages(\"lear
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "quiz1-1", question = structure("How many variables are included in this data set?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_71fabaa", 
+"character")), answers = list(structure(list(id = "lnr_ans_ad93fc7", 
     option = "2", value = "2", label = structure("2", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_31595a4", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_577ed9d", 
     option = "9", value = "9", label = structure("9", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b580c4d", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_481286e", 
     option = "10", value = "10", label = structure("10", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_29dc6ee", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_14626b0", 
     option = "82", value = "82", label = structure("82", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5afe864", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_34df014", 
     option = "53940", value = "53940", label = structure("53940", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -488,7 +489,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "quiz1-1-answer", question = "quiz1-1"), loading = structure("<strong>Loading:<\u002fstrong> \nHow many variables are included in this data set?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 587930828.226223, options = list()), class = c("learnr_radio", 
+    seed = 1051515321.51035, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
@@ -598,17 +599,17 @@ learnr:::store_exercise_cache("new-column", list(setup = NULL, chunks = list(lis
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "quiz2-1", question = structure("What command would you use to extract just the data on diamond length? ", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_1414089", 
+"character")), answers = list(structure(list(id = "lnr_ans_77abaf0", 
     option = "diamonds %>% choose(x)", value = "diamonds %>% choose(x)", 
     label = structure("diamonds %&gt;% choose(x)", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_33eaf7f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a3c7a94", 
     option = "diamonds %>% x", value = "diamonds %>% x", label = structure("diamonds %&gt;% x", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c0ad85f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_18340f3", 
     option = "diamonds[x]", value = "diamonds[x]", label = structure("diamonds[x]", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3db6515", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c374820", 
     option = "diamonds %>% select(x)", value = "diamonds %>% select(x)", 
     label = structure("diamonds %&gt;% select(x)", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
@@ -620,7 +621,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "quiz2-1-answer", question = "quiz2-1"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat command would you use to extract just the data on diamond length? \n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 452574765.789253, options = list()), class = c("learnr_radio", 
+    seed = 898337562.581679, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
