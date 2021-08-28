@@ -1,5 +1,5 @@
 ---
-title: "Spring 2021 Workshop"
+title: "Fall 2021 Workshop"
 output:
   learnr::tutorial:
     progressive: no
@@ -23,7 +23,7 @@ This workshop is for students new to R and RStudio.
 
 Your introductory StatSci course this semester will march you through a thorough introduction to using R for statistical science and data science purposes, as well as for many other practical applications.  You should already be familiar with the environment you are going to use for your course, whether it is RStudio in the Cloud, a Docker container, or software installed on your own computer. Your instructor should have given you that information and you should be ready to use it.  
 
-The materials here are a compilation of advice and instructions from your professors Curry Hilton, Victoria Ellison, Yue Jiang, Shawn Santo, Bob Eisinger, and especially Maria Tackett, Mine Cetinkaya-Rundel, and TAs including Becky Tang, Jennifer Wilson, Frances Hu, and many helpful resources.  
+The materials here are a compilation of advice and instructions from your professors ..., and TAs including Meredith Brown..., and many helpful resources.  
 
 Here are some key ideas:
 
