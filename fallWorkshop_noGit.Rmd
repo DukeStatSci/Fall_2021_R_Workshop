@@ -34,98 +34,6 @@ Here are some key ideas:
 
 -   RStudio is the IDE (Interactive Development Environment) we use to work with R.
 
-## Getting started with Github
-
-### Creating a GitHub account
-
-If you're new to GitHub, you'll first need to go in and create an account.
-You will use GitHub to obtain the R Markdown (`.Rmd`) file for this workshop.
-If you already have a GitHub account, great!
-If not, take a minute to create one.
-But first, some username advice:
-
--   Try to incorporate your real name!
-
--   Remember that horrible Snapchat username you made in middle school?
-    Don't do that again.
-    Make your username something you will feel comfortable sharing with future employers!
-
--   Make it short and sweet!
-
-After creating your account, **write down your username and password**.
-Or better yet, get in the habit of using an online password manager (like [LastPass](https://oit.duke.edu/what-we-do/applications/lastpass)) to save it.
-
-### Authenticating with SSH
-
-Git is used to integrate GitHub and version control into your RStudio IDE.
-
-To connect to Github, do the following:
-
-1.  In the console of the docker container, type `credentials::ssh_setup_github()`.
-    R will ask "No SSH key found. Generate one now?" You should **click 1 for yes**.
-
-2.  You will generate a key.
-    It will begin with "ssh-rsa..." R will then ask "Would you like to open a browser now?" You should **click 1 for yes**.
-
-3.  In Github in the browser, give your key a name and **paste the generated key**.
-    Hit save and refresh Github.
-
-```{r echo = FALSE, out.width = "50%", fig.alt = "Screenshot of the GitHub page for saving a a new SSH key. On top is the Title box and at the bottom is the Key box. At the very bottom of the document there's a button that says 'Add SSH key'."}
-knitr::include_graphics("images/SSH_key.png")
-```
-
-This process will only need to be done one time for your container.
-
-### Introduce yourself to Git
-
-You will use the `use_git_config()` function from the **usethis** package.
-
-Type the following lines of code in the console in RStudio filling in your name and email address.
-
-The email address should be the one tied to your GitHub account so that your commits can be tied to you on GitHub.
-
-```{r get your github congfigured, echo=TRUE, eval=FALSE}
-library(usethis)
-use_git_config(user.name = "GitHub username", user.email = "your email")
-```
-
-For example, Meredith's would be:
-
-```{r github-usethis-ex, echo=TRUE, eval = FALSE}
-library(usethis)
-use_git_config(user.name = "meredithb3", user.email = "meredith.brown@duke.edu")
-```
-
-Take a minute to introduce yourself to Git by placing your own information in the `use_git_config()` function above.
-
-### Fork and clone "Fall 2021 R Workshop"
-
-Go to the following URL: <https://github.com/DukeStatSci/Fall_2021_R_Workshop>.
-
-First, **Fork** the repository by clicking Fork in the upper right-hand portion of the screen.
-Forking allows you to create a copy of the repository that you own, and hence can make changes to.
-
-```{r echo = FALSE, out.width = "90%", fig.alt = "GitHub repo with the Fork button highlighted."}
-knitr::include_graphics("images/new_fork.png")
-```
-
-Click on the green **Code** button and then click on the clipboard icon next to the URL to copy the repository link.
-Make sure to copy the URL corresponding to the **SSH** tab.
-
-```{r echo = FALSE, out.width = "90%", fig.alt = "GitHub repo with the Code button and the URL of the repo highlighted."}
-knitr::include_graphics("images/new_clone-repo.png")
-```
-
-Now open your RStudio window.
-
-Click **File** $\rightarrow$ **New Project** $\rightarrow$ **Version Control** $\rightarrow$ **Git** and hit **paste** in the **Repository URL** field.
-
--   You will need to select a location to store this project. Good coding practice suggests creating a folder for your class, and then sub-folders for labs, homeworks, etc.
-
-Now click **Create Project**.
-
-To view the output that I am currently sharing with you, click on the file `fallWorkshop.Rmd` and click **Knit**.
-
 ## R overview
 
 ### RStudio
@@ -147,7 +55,7 @@ knitr::include_graphics("images/rstudio.jpeg")
 ```
 
 Your R Markdown file is in the upper left panel.
-If you want to view the the output of this `Rmd` file in a nicer format, **click the Knit button** above.
+If you want to view the the output of an R Markdown (`.Rmd`) file in a nicer format, **click the Knit button** at the top of the *Source* pane.
 This will process your `.Rmd` file into a HTML (or PDF or a Word) file.
 The `.Rmd` and `.html` files are separate but directly related; the `.Rmd` file contains the source code, the `.html` file is the output.
 When you make any changes in the `.Rmd` file, click Knit to update the `.html` file.
@@ -155,7 +63,6 @@ When you make any changes in the `.Rmd` file, click Knit to update the `.html` f
 The panel in the upper right displays information on any objects available to you to work with (i.e., any objects available in your environment).
 This can include any data you have loaded.
 On a separate tab in this panel you can also view the history of the commands you've previously ran in the Console (more on that below).
-And in a different tab you can use the Git interface to version control the work you're doing in RStudio.
 
 Any plots that you generate will show up in the panel in the lower right corner.
 This is also where you can browse your files, access help documentation, manage packages you have installed and loaded, etc.
@@ -186,10 +93,8 @@ For this workshop, and many others in the future, we will use the following R pa
 
     -   **ggplot2**: A package in the tidyverse for data visualization
 
--   **usethis**: A package for interfacing between RStudio and Github
-
 These packages and most packages you will use for your courses have been pre-installed for you in the containers you're using to access RStudio.
-In the future, if you download RStudio locally or wish to install new packages for your personal use, you can install packages using commands like `install.packages()` and `install_github()`.
+In the future, if you download RStudio locally or wish to install new packages for your personal use, you can install packages using the command `install.packages()`.
 Find out more about the tidyverse [here](https://www.tidyverse.org/).
 
 Next, you need to load the packages in your working environment.
@@ -198,7 +103,6 @@ Note that you only need to *install* packages once, but you need to *load* them 
 
 ```{r load-packages}
 library(tidyverse)
-library(usethis)
 ```
 
 To do so, you can use any **one** of the following options:
@@ -487,9 +391,9 @@ We will briefly go over how to create these outputs from an `.Rmd` file.
 Turning your assignment can be accomplished from the following steps.
 
 1.  Once you are finished with the assignment, **Knit** the file.
-2.  Select all updated files in the **Git** tab of the *Environment* pane.
-3.  **Commit** the files with an informative title, and **push** the files to Github.
-4.  Go to your class's Gradescope page. **Submit the PDF** of your assignment.
+2.  In the *Utility* pane, select the files (most likely the PDF and `.Rmd` files) you will need for submission.
+3.  Click **More** and then **Export**. This will save these files to your computer. 
+4.  Go to your class's Gradescope page. **Submit the files** to your assignment.
 5.  **Select** the page each exercise is associated with.
 6.  Done!
 
