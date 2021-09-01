@@ -19,32 +19,33 @@ library(tidyverse)
 This workshop is for students new to R and RStudio.
 
 Your introductory StatSci course this semester will march you through a thorough introduction to using R for statistical science and data science purposes, as well as for many other practical applications.
-You should already be familiar with the environment you are going to use for your course, most likely a Docker container provided through your course.
+You should already be familiar with the environment you are going to use for your course.
+This most likely involves accessing RStudio in your browser, via a Docker container provided through your course.
 Your instructor should have given you that information and you should be ready to use it.
 
-The materials here are a compilation of advice and instructions from your professors, undergraduate and graduate TAs, and many helpful resources.
+The materials here are a compilation of advice and instructions from your professors, TAs, and many helpful resources.
 
 Here are some key ideas:
 
 -   Everyone can learn R!
     It is very user-friendly, so do not be intimidated!
 
--   R is an open source programming language for statistical computing (<http://cran-r-project.org>).
+-   R is an open-source programming language for statistical computing (<http://cran-r-project.org>).
 
--   RStudio is the IDE or Interactive Development Environment we use to work in R.
-    RStudio is available open source, but their company also provides some cloud-based servers for working in their environment, known as RStudio in the Cloud.
+-   RStudio is the IDE (Interactive Development Environment) we use to work with R.
+    RStudio is available open source, but their company also provides some cloud-based servers for working in their environment, known as RStudio Cloud.
 
-## Getting Started
+## Getting started
 
-### Creating a GitHub Account
+### Creating a GitHub account
 
 If you're new to GitHub, you'll first need to go in and create an account.
-You will use GitHub to obtain the RMarkdown or .Rmd file for this workshop.
+You will use GitHub to obtain the R Markdown (`.Rmd`) file for this workshop.
 If you already have a GitHub account, great!
 If not, take a minute to create one.
 But first, some username advice:
 
--   Try to incorporate your name!
+-   Try to incorporate your real name!
 
 -   Remember that horrible Snapchat username you made in middle school?
     Don't do that again.
@@ -53,8 +54,9 @@ But first, some username advice:
 -   Make it short and sweet!
 
 After creating your account, **write down your username and password**.
+Or better yet, get in the habit of using an online password manager (like [LastPass](https://oit.duke.edu/what-we-do/applications/lastpass)) to save it.
 
-## R Overview
+## R overview
 
 ### RStudio
 
@@ -62,29 +64,35 @@ Your RStudio window generally has four panels.
 This is customizable so you might have changed it already.
 You can also drag the borders to resize each portion.
 
--   **Source**: Where R markdown files are produced and saved
+-   **Source**: Where R Markdown files are edited and saved
 
--   **Console**: Where live R code is run; cannot be saved
+-   **Console**: Where R code is run interactive; cannot be saved easily
 
 -   **Environment**: Where R objects live and are stored
 
--   **Utility**: Where directories, plots, packages, and help can be found
+-   **Utility**: Where a files, plots, list of packages, and help documentation can be viewed
 
-![](images/rstudio.jpeg){width="90%"}
+```{r echo = FALSE, out.width = "90%", fig.alt = "RStudio window with four panes. Top left: Source. Top right: Environment. Bottom right: Utility. Bottom left: Console."}
+knitr::include_graphics("images/rstudio.jpeg")
+```
 
-Your R Markdown file (<this-document>.Rmd) is in the upper left panel.
-If you want to view this .Rmd file in a nicer format, click the Knit button above.
-This will turn your .Rmd file into a HTML or PDF file.
-The .Rmd and .html files are separate but directly related; after you make any changes in the .Rmd file, click Knit to update the .html file.
+Your R Markdown file is in the upper left panel.
+If you want to view this the output of this `Rmd` file in a nicer format, click the Knit button above.
+This will process your `Rmd` file into a HTML (or PDF or a Word) file.
+The `.Rmd` and `.html` files are separate but directly related; the `.Rmd` file contains the source code, the `.html` file is the output.
+When you make any changes in the `.Rmd` file, click Knit to update the `.html` file.
 
-The panel in the upper right contains any data you have loaded, as well as a history of the commands that you've previously entered.
-You can also use the **Git** interface in this panel.
+The panel in the upper right displays information on any objects available to you to work with (i.e., any objects available in your environment).
+This can include any data you have loaded.
+On a separate tab in this panel you can also view the history of the commands you've previously ran in the Console (more on that below).
+And in a different tab you can use the Git interface to version control the work you're doing in RStudio.
 
 Any plots that you generate will show up in the panel in the lower right corner.
-This is also where you can browse your files, access help, manage packages, etc.
+This is also where you can browse your files, access help documentation, manage packages you have installed and loaded, etc.
 
 Your console, in the bottom left panel, can be used to run code.
-Do this with caution as your code will not be saved.
+We generally recommend not relying on code ran in the console for any serious work (read: any work you want to save, like your homework!).
+Instead, we'll introduce you to how to write your code (and save it) in an R Markdown file.
 
 ### R Markdown
 
@@ -93,39 +101,41 @@ Working in the console exclusively makes it difficult to document your work as y
 
 R Markdown is a great solution for this problem.
 And, you already have worked with an R Markdown document -- this workshop!
-Type code in the code chunks provided in the R Markdown (Rmd) document, and **Knit** the document to see the results.
-Knit should produce an HTML file for you that lets you view the output of your code.
+Type code in the code chunks provided in the R Markdown (`.Rmd)` document, and **Knit** the document to see the results.
+This should produce an HTML file for you that lets you view the output of your code.
 
-### R Packages
+### R packages
 
 R is an open-source programming language, meaning that users can contribute packages that make our lives easier, and we can use them for free.
 For this workshop, and many others in the future, we will use the following R packages:
 
--   `tidyverse`: A group of packages for data manipulation, exploration and visualization that share a common coding syntax and style.
--   `dplyr`: A package in the tidyverse for data wrangling
--   `ggplot2`: A package in the tidyverse for data visualization
--   `usethis`: A package for interfacing between RStudio and Github
+-   **tidyverse**: A group of packages for data manipulation, exploration and visualization that share a common coding syntax and style.
+    Some of the packages in the tidyverse include:
 
-These packages and most packages you will use for your courses have been preinstalled in the docker containers for you.
-In the future, if you download RStudio locally or wish to install new packages for your personal use, you can install packages using commands like `install.packages` and `install_github`.
-Find out more about the tidyverse [here.](https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/)
+    -   **dplyr**: A package in the tidyverse for data wrangling
+
+    -   **ggplot2**: A package in the tidyverse for data visualization
+
+-   **usethis**: A package for interfacing between RStudio and Github
+
+These packages and most packages you will use for your courses have been pre-installed for you in the containers you're using to access RStudio.
+In the future, if you download RStudio locally or wish to install new packages for your personal use, you can install packages using commands like `install.packages()` and `install_github()`.
+Find out more about the tidyverse [here](https://www.tidyverse.org/).
 
 Next, you need to load the packages in your working environment.
-We do this with the `library` function.
-Note that you only need to **install** packages once, but you need to **load** them each time you relaunch RStudio.
+We do this with the `library()` function.
+Note that you only need to *install* packages once, but you need to *load* them each time you start a new R session.
 
-```{r load-packages, eval = TRUE, echo = TRUE, message = FALSE, warning = FALSE}
+```{r load-packages}
 library(tidyverse)
-library(dplyr)
-library(ggplot2)
 library(usethis)
 ```
 
-To do so, you can do any one of the following options:
+To do so, you can use any **one** of the following options:
 
 -   Click on the green arrow at the top of the code chunk in the R Markdown (Rmd) file
 
--   Highlight these lines, and hit the **Run** button on the upper right corner of the pane, or
+-   Highlight these lines, and hit the **Run** button on the upper right corner of the pane
 
 -   Hit `CTRL` + `ENTER` to run the current line of code
 
@@ -133,60 +143,72 @@ To do so, you can do any one of the following options:
 
 -   Type the code in the console.
 
-    -   Note: Running code in the console is useful for testing code and seeing the current status of variables, but any code that you want in your final .Rmd file should be put in a code chunk in the .Rmd.
+    -   Note: Running code in the console is useful for testing code and seeing the current status of variables, but any code that you want in your final `.Rmd` file should be put in a code chunk in the `.Rmd`.
 
-Going forward you will be asked to load any relevant packages at the beginning of each lab.
+Going forward you will be asked to load any relevant packages at the beginning of each lab or R exercise you do in class.
 
 ## Github and RStudio
 
 ### Authenticating with SSH
 
-Git is used to integrate GitHub and Version Control into your RStudio IDE.
+Git is used to integrate GitHub and version control into your RStudio IDE.
 
 To connect to Github, do the following:
 
-1.  In the console of the docker container, type `credentials::ssh_setup_github()`. R will ask "No SSH key found. Generate one now?" You should **click 1 for yes**.
-2.  You will generate a key. It will begin with "ssh-rsa..." R will then ask "Would you like to open a browser now?" You should **click 1 for yes**.
-3.  In Github in the browser, give your key a name and **paste the generated key**. Hit save and refresh Github.
-4.  This process will only need to be done one time for your container.
+1.  In the console of the docker container, type `credentials::ssh_setup_github()`.
+    R will ask "No SSH key found. Generate one now?" You should **click 1 for yes**.
 
-![](images/SSH_key.png){width="50%"}
+2.  You will generate a key.
+    It will begin with "ssh-rsa..." R will then ask "Would you like to open a browser now?" You should **click 1 for yes**.
 
-### Configure your GitHub Account
+3.  In Github in the browser, give your key a name and **paste the generated key**.
+    Hit save and refresh Github.
+
+```{r echo = FALSE, out.width = "50%", fig.alt = "Screenshot of the GitHub page for saving a a new SSH key. On top is the Title box and at the bottom is the Key box. At the very bottom of the document there's a button that says 'Add SSH key'."}
+knitr::include_graphics("images/SSH_key.png")
+```
+
+This process will only need to be done one time for your container.
+
+### Introduce yourself to Git
 
 You will use the `use_git_config()` function from the `usethis` package.
 
 Type the following lines of code in the console in RStudio filling in your name and email address.
 
-The email address is the one tied to your GitHub account.
+The email address should be the one tied to your GitHub account so that your commits can be tied to you on GitHub.
 
 ```{r get your github congfigured, echo=TRUE, eval=FALSE}
 library(usethis)
-use_git_config(user.name = "GitHub username", user.email="your email")
+use_git_config(user.name = "GitHub username", user.email = "your email")
 ```
 
 For example, Meredith's would be:
 
 ```{r github-usethis-ex, echo=TRUE, eval = FALSE}
 library(usethis)
-use_git_config(user.name="meredithb3", user.email="meredith.brown@duke.edu")
+use_git_config(user.name = "meredithb3", user.email = "meredith.brown@duke.edu")
 ```
 
-Take a minute to configure your GitHub account into RStudio!
+Take a minute to introduce yourself to Git by placing your own information in the `use_git_config()` function above.
 
-### Fork and Clone Fall Workshop
+### Fork and clone "Fall 2021 R Workshop"
 
-Now on GitHub, search for the following repository: <https://github.com/DukeStatSci/Fall_2021_R_Workshop>
+Go to the following URL: <https://github.com/DukeStatSci/Fall_2021_R_Workshop>.
 
 First, **Fork** the repository by clicking Fork in the upper right-hand portion of the screen.
-Forking allows you to make changes to the repository with Version Control, without changing the repository for others.
+Forking allows you to create a copy of the repository that you own, and hence can make changes to.
 
-![](images/new_fork.png){width="90%"}
+```{r echo = FALSE, out.width = "90%", fig.alt = "GitHub repo with the Fork button highlighted."}
+knitr::include_graphics("images/new_fork.png")
+```
 
 Click on the green `Code` button and then click on the clipboard icon next to the URL to copy the repository link.
 Make sure to copy the URL corresponding to the `SSH` tab.
 
-![](images/new_clone-repo.png){width="90%"}
+```{r echo = FALSE, out.width = "90%", fig.alt = "GitHub repo with the Code button and the URL of the repo highlighted."}
+knitr::include_graphics("images/new_clone-repo.png")
+```
 
 Now open your RStudio window.
 
@@ -196,56 +218,57 @@ Click `File` $\rightarrow$ `New Project` $\rightarrow$ `Version Control` $\right
 
 Now click `Create Project`.
 
-To view the output that I am currently sharing with you, click on the file `fallWorkshop.Rmd` and click **Knit** on the file.
+To view the output that I am currently sharing with you, click on the file `fallWorkshop.Rmd` and click **Knit**.
 
-## Diving into the Data
+## Diving into the data
 
-We are going to use a data set called `starwars` from the `dplyr` package.
-Simply run `library(tidyverse)` or `library(dyplr)` if you haven't already, and then call `data(starwars)` to load in the data set.
-To get you started, run the following command to load the data and to inspect the first ten rows of the file.
+We are going to use a dataset called `starwars` from the **dplyr** package (which is part of the tidyverse).
+Simply run `library(tidyverse)` if you haven't already and then run the following commands to inspect the first ten rows of the file.
 
-```{r load-starwars-data, echo=TRUE}
-# Load the starwars file
+```{r display-starwars-data, echo=TRUE}
+# load starwars data
 data(starwars)
 
-# Display the data
+# display starwars data
 starwars
 ```
 
 To do so, once again, you can:
 
 -   Click on the green arrow at the top of the code chunk in the R Markdown (Rmd) file, or
--   Put your cursor on this line, and hit the **Run** button on the upper right corner of the pane, or
--   Type the code in the console.
+-   Put your cursor on the line with the code, and hit the **Run** button on the upper right corner of the pane, or
+-   Type the code in the Console.
 
-This command instructs R to load some data.
-You should see that the workspace area in the upper righthand corner of the RStudio window now lists a data set called `starwars` that has 87 observations of 14 variables.
+This command instructs R to show you the data, which is stored as a `tibble`.
+By default it only prints out the top 10 rows, but it also tells you that it's a `87 x 14` table, meaning 87 rows (observations) and 14 columns (variables).
+
 As you interact with R, you will create a series of objects.
 Sometimes you load them as we have done here, and sometimes you create them yourself as the byproduct of a computation or some analysis you have performed.
 
-However printing the whole dataset in the console is not that useful.
+However printing the dataset in the console is not that useful.
 One advantage of RStudio is that it comes with a built-in data viewer.
 Click on the name `starwars` in the *Environment* pane (upper right window) that lists the objects in your workspace.
-This will bring up an alternative display of the data set in the *Data Viewer* (upper left window).
+This will bring up an alternative display of the dataset in the *Data Viewer* (upper left window).
 You can close the data viewer by clicking on the *x* in the upper lefthand corner.
 
-What you should see are fourteen columns of data, each row representing a different character from Star Wars: the first entry in each row is the name of the character, the second is height in centimeters, and the third is the mass in kilograms.
-Use the scrollbar on the right side of the console window to examine the complete data set.
+What you should see are 87 rows and 14 columns of data.
+Each row represents a different character from Star Wars: the first entry in each row is the name of the character, the second is height in centimeters, and the third is the mass in kilograms.
+Use the scrollbar on the right side of the *Data Viewer* window to examine the complete dataset.
 
 Note that the row numbers in the first column are not part of the `starwars` data.
-R adds them as part of its printout to help you make visual comparisons.
+R adds them as part of its printout to help you identify the rows.
 You can think of them as the index that you see on the left side of a spreadsheet.
 In fact, the comparison to a spreadsheet will generally be helpful.
 R has stored the `starwars` data in a kind of spreadsheet or table called a *data frame*.
 
-You can see the dimensions -- the number of observations and variables -- of this data frame by typing:
+You can see also the dimensions -- the number of observations and variables -- of this data frame by typing:
 
 ```{r dim-data, echo = TRUE}
 dim(starwars)
 ```
 
-This command should output `[1] 87 14`, indicating that there are 87 rows or observations and 14 columns or variables.
-You can see the names of these columns (or variables) by typing:
+This command should output `[1] 87 14`, indicating that there are 87 rows (observations) and 14 columns (variables).
+You can see the names of these columns (variables) by typing:
 
 ```{r names-data, echo=TRUE}
 names(starwars)
@@ -253,21 +276,21 @@ names(starwars)
 
 **Exercise:** What are some of the values for `homeworld` included in this dataset?
 
-Hint: Take a look at the `homeworld` variable in the Data Viewer to answer this question.
+**Hint:** Take a look at the `homeworld` variable in the Data Viewer to answer this question.
 
 Let's start to examine the data a little more closely.
-To find out more about this data set, you could use some help.
+To find out more about this dataset, you could use some help.
 Remove the `#` from the line of code below and then run the code chunk.
 
-```{r help-starwars, exercise=TRUE}
+```{r help-starwars}
 #?starwars
 ```
 
-You should see the documentation on the data set in the Help window.
-Any time you need more information about a dataset, function, or package of interest, typing `?<NAME_HERE>` in the console will bring up its help page!
+You should see the documentation on the dataset in the *Help* window.
+Any time you need more information about a dataset, function, or package of interest, typing `?<function_name>` in the console will bring up its help page!
 Try out the other tabs there briefly.
 
-## Data Exploration
+## Data exploration
 
 At this point, you might notice that many of the commands in R look a lot like functions from math class; that is, invoking R commands means supplying a function with some number of arguments.
 The `dim` and `names` commands, for example, each took a single argument, the name of a data frame.
@@ -277,38 +300,40 @@ These verbs can be organised into three categories based on the component of the
 
 -   Rows:
 
-    -   `filter()` chooses rows based on column values.
-    -   `slice()` chooses rows based on location.
-    -   `arrange()` changes the order of the rows.
+    -   `filter()` chooses rows based on column values
+    -   `slice()` chooses rows based on location
+    -   `arrange()` changes the order of the rows
 
 -   Columns:
 
-    -   `select()` changes whether or not a column is included.
-    -   `rename()` changes the name of columns.
-    -   `mutate()` changes the values of columns and creates new columns.
-    -   `relocate()` changes the order of the columns.
+    -   `select()` changes whether or not a column is included
+    -   `rename()` changes the name of columns
+    -   `mutate()` changes the values of columns and/or creates new columns
+    -   `relocate()` changes the order of the columns
 
 -   Groups of rows:
 
-    -   `summarise()` collapses a group into a single row.
+    -   `summarise()` collapses the data (or groups in the data) into a single row containing a summary statistic
 
-The dplyr package also uses the `%>%` operator, called a **pipe**.
-Basically, it takes the output of the current line and tells R to continue into the following line of code.
+The dplyr package also uses the `%>%` operator, called the **pipe operator**.
+Basically, it takes the output of the current line and tells R to use that output as the first argument in the function in the next line.
+
+### Select and slice
 
 Putting the functions with the pipe operator, we can do something like this:
 
-```{r view-species, exercise=TRUE}
+```{r species-top-15}
 starwars %>%
   select(species) %>%
-  slice(1:100)
+  slice(1:15)
 ```
 
 Reading the code in plain English: From the `starwars` data frame, we select the column `species`.
-We want the first 100 rows of the column `species`.
+We want the first 15 rows of the column `species`.
 
-**Exercise:** Try selecting a different column to observe and only view the first 50 rows.
+**Exercise:** Try selecting a different column to observe and only view the first 5 rows.
 
-```{r new-column, exercise=TRUE}
+```{r new-col-top-5}
 # Write your code here
 ```
 
@@ -316,34 +341,44 @@ We want the first 100 rows of the column `species`.
 
 We can create new columns in our data frame through the `mutate()` function.
 
-```{r new-columns, exercise = TRUE}
+```{r new-columns}
 starwars <- starwars %>%
-  mutate(is_Human = (species == "Human"))
+  mutate(is_human = if_else(species == "Human", TRUE, FALSE))
 
 starwars %>%
-  select(species, is_Human)
+  select(species, is_human)
 ```
 
 See how we used the `select()` function to compare these two columns side-by-side!
 
 The `mutate()` function added a new variable to the `starwars` data frame containing the values of either `TRUE` if the species was Human, or `FALSE` if it was not.
+Note that we put `"Human"` in quotes since it's a character string.
 
 Here, we've asked R to create *logical* data, data where the values are either `TRUE` or `FALSE`.
-Other data types we've used are *numeric* and *character*.
+Other data types we've used so far are *numeric* and *character*.
 
 ### Filtering
 
-We can reduce the data set to a subset of rows by filtering.
-Here, we are going to filter on a particular value of `skin_color` and `eye_color`.
+We can reduce the dataset to a subset of rows by filtering.
+Below, we filter on a particular value of `skin_color`.
 
-```{r try-filtering-diamonds, exercise = TRUE}
+```{r filter-skin-color}
 starwars %>%
-  filter(skin_color == "fair" & eye_color =="blue")
+  filter(skin_color == "fair")
 ```
 
-**Exercise**: Try filtering another variable.
+We can also filter with multiple conditions.
+Below, we filter for character with fair `skin_color` *and* blue `eye_color`.
 
-```{r new-filter, exercise=TRUE}
+```{r filter-skin-eye-color}
+starwars %>%
+  filter(skin_color == "fair", eye_color =="blue")
+```
+
+**Exercise**: Try filtering for characters with brown hair color.
+Don't forget to spell the name of the variable as it appears in the data frame and put brown in quotes since it's a character string.
+
+```{r new-filter}
 # Write your code here
 ```
 
@@ -354,27 +389,27 @@ For example, above we asked R to compare the species variable and the value "Hum
 
 We can ask if the mass of the character is greater than 50 kg:
 
-```{r x-greater-than-y, exercise = TRUE}
+```{r x-greater-than-y}
 starwars %>%
   filter(mass > 50)
 ```
 
 You may have noticed that the syntax and function of all these verbs are very similar:
 
--   The first argument is a data frame.
--   The subsequent arguments describe what to do with the data frame.
+-   The first argument is a data frame
+-   The subsequent arguments describe what to do with the data frame
 -   The result is a new data frame
 
 Together these properties make it easy to do complex things with a few lines of R code!
 
-## Data Visualization
+## Data visualization
 
 R has some powerful functions for making graphics.
 We will utilize the `ggplot2` package for these visualizations.
 
 To build a ggplot, we will use the following basic template that can be used for different types of plots:
 
-```{r basic-template, eval=FALSE}
+```{r basic-template, eval = FALSE}
 ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  
   <GEOM_FUNCTION>() + 
   labs(title = "YOUR TITLE", x = "X-label", y = "Y-label")
@@ -383,7 +418,7 @@ ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +
 In English, the above code uses the following:
 
 -   `ggplot()` is the function we are using
--   `data` is the data set we are plotting from
+-   `data` is the dataset we are plotting from
 -   `mapping` specifies the variables of interest
 -   `<GEOM_FUNCTION>()` will be the specific type of plot to make, i.e. `geom_point`, `geom_bar`, etc.
 -   `labs()` specifies a title and labels for the axes
@@ -393,8 +428,11 @@ Let's visualize the distribution of the character heights v. masses:
 ```{r plot-height-vs-mass, echo=TRUE, warning=FALSE}
 ggplot(data = starwars, aes(x = height, y = mass)) +
   geom_point() +
-  labs(title = "Height v. Mass",
-       x = "Height (cm)", y = "Mass (kg)")
+  labs(
+    title = "Mass and height of StarWars characters",
+    x = "Height (cm)", 
+    y = "Mass (kg)"
+    )
 ```
 
 If you run the plotting code, you should see the plot appear under the *Plots* tab of the lower right panel of RStudio.
@@ -405,10 +443,12 @@ If we want to graph a **categorical variable** such as `gender`, we can use boxp
 ```{r better-plots-2, echo=TRUE, warning=FALSE}
 ggplot(data = starwars, aes(x = gender, y = height, fill = gender)) +
   geom_boxplot() +
-  labs(title = 'Gender v. Height',
-       x = "Gender",
-       y = "Height (cm)",
-       fill = "Gender")
+  labs(
+    title = "Height and gender of StarWars characters",
+    x = "Gender",
+    y = "Height (cm)",
+    fill = "Gender"
+    )
 ```
 
 Here, we used the `fill` option to color the plot by the different categories of our variable.
@@ -419,26 +459,28 @@ To learn more about the `ggplot` function, check out the `ggplot` help page by r
 ?ggplot
 ```
 
-![](images/help.jpeg){width="90%"}
+```{r echo = FALSE, out.width = "90%", fig.alt = "RStudio IDE with the Help pane highlighted. Help pane shows the documentation for the ggplot function."}
+knitr::include_graphics("images/help.jpeg")
+```
 
 Notice that the help file replaces the plot in the lower right panel.
 You can toggle between plots and help files using the tabs at the top of that panel.
 
-**Exercise:** Now play with the `ggplot` function to create a plot of interest to you.
+**Exercise:** Play with the `ggplot()` function to create a plot of interest to you.
 
-```{r plot-of-something-interesting, eval=FALSE}
+```{r plot-of-something-interesting, error = TRUE}
 ggplot(data = "____", aes(x = "____", y = "____")) +
   "____"
 ```
 
-For help with plotting with the `ggplot2` package, check out [this cheatsheet!](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+For help with plotting with the `ggplot2` package, check out [this cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization.pdf)!
 The best (and easiest) way to learn the syntax is to take a look at the sample plots provided on that page, and modify the code to fit your needs.
 
-## Submitting Your Work
+## Submitting your work
 
 Now that you've gotten some practice coding - let's go over how to submit your work for classes.
 Your professors will most likely ask for your final **PDF** file.
-We will briefly go over how to create these outputs from an .Rmd file.
+We will briefly go over how to create these outputs from an `.Rmd` file.
 
 Turning your assignment can be accomplished from the following steps.
 
@@ -449,50 +491,53 @@ Turning your assignment can be accomplished from the following steps.
 5.  **Select** the page each exercise is associated with.
 6.  Done!
 
-![](images/gradescope.png){width="50%"}
+```{r echo = FALSE, out.width = "50%", fig.alt = "Gradescope assignment submission screen."}
+knitr::include_graphics("images/gradescope.png")
+```
 
 ## Troubleshooting
 
-Sometimes, your code will work in your .Rmd but will not compile.
-This is because when you **knit**, your machine is running the code line by line.
+Sometimes, your code will work in your R Markdown document but will not compile.
+This is because when you **knit**, your machine is running the code line by line, from the top.
 If one of your lines of code was entered in the console instead of in the file, uses a variable not created until later in your document, repeats a code chunk name, or possesses any other fault, you will run into an error.
 
 R provides thorough error messages letting you know the issue at hand.
 Very often, it is because the data or a package is not loaded into the file.
 There are a lot of great resources online for troubleshooting error messages.
-Sites like **Stack Overflow** <https://stackoverflow.com/questions/tagged/rstudio> provide lots of resources and answers to questions people have already asked.
+Sites like [**Stack Overflow**](https://stackoverflow.com/) and [**RStudio Community**](https://community.rstudio.com/) provide lots questions and answers.
 Likewise, your TA and professors are here to help!
-If you cannot find a solution online, post your code (privately) and error message on your **Ed Discussion board**, or visit your professor/TA's office hours.
+If you cannot find a solution online, post your code (privately) and error message on your course's **Ed Discussion board**, or visit your professor/TA's office hours.
 
-## Resources for Learning R
+## Resources for learning R
 
 That was a short introduction to R and RStudio, but your instructors will provide you with more functions and a more complete sense of the language as your course progresses.
 You might find the following tips and resources helpful.
 
--   Many courses use the Tidyverse while other courses will expect you to learn to work in base R, rather than in the RStudio IDE. In Tidyverse-flavored courses, you will use `dplyr` (for data wrangling) and `ggplot2` (for data visualization) extensively.
+-   Many courses use the tidyverse while other courses will expect you to learn to work in base R, rather than in the RStudio IDE. In Tidyverse-flavored courses, you will use **dplyr** (for data wrangling) and **ggplot2** (for data visualization) extensively.
     If you are googling for R code, make sure to also include these package names in your search query.
     For example, instead of googling "scatterplot in R", google "scatterplot in R with ggplot2".
 
--   Duke offers Coursera courses for free to Duke students through this link: <https://online.duke.edu/coursera-for-duke/>
+-   Duke offers Coursera courses for free to Duke students through this link: <https://online.duke.edu/coursera-for-duke/>.
 
--   There is a terrific resource on Medium called Towards Data Science, and you can find good information there, although you may have a limited number of free articles to read.
-    <https://towardsdatascience.com/data-science/home>
+-   R for Data Science is the definitive source for learning data science with R and tidyverse, and it's available for free online: <https://r4ds.had.co.nz/>.
 
--   Do a quick search on "Free books on R" and you will find a huge array of choices.
+-   The following are great collections for free resources for learning R:
 
--   Lots of R users post their own guides that you can find by searching.
-    Here's one from David Romney at Harvard: <https://scholar.harvard.edu/dromney/online-resources-learning-r>
+    -   <https://www.learnr4free.com/en/index.html>
+    -   <https://www.bigbookofr.com/>
 
--   The r-statistics blog is very helpful: <https://www.r-statistics.com/> In fact, you will find that the R community by its very nature is beginner friendly.
-
--   The following cheatsheets may come in handy throughout your courses.
+-   The RStudio cheatsheets are great resources.
     Note that some of the code on these cheatsheets may be too advanced for your needs now, however the majority of it will become useful as you progress through your statistical science courses.
+    Get all of them here: <https://www.rstudio.com/resources/cheatsheets/>.
 
-    -   [Data wrangling cheatsheet](http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
-    -   [Data visualization cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
-    -   [R Markdown](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+-   The R Weekly blog is a great for catching up with what's happening in the R space, on a weekly basis: <https://rweekly.org/>.
+
+-   More and more folks are streaming data science content on Twitch, many using R.
+    See a list of them here: <https://www.jessemaegan.com/blog/2021-05-28-data-science-twitch-streamers-round-up/>.
+
+-   There is a terrific resource on Medium called Towards Data Science, and you can find good information there, although you may have a limited number of free articles to read: <https://towardsdatascience.com/data-science/home>.
 
 ## Acknowledgements
 
 This is derived from the `Learning R Tutorials` website.
-Thanks to Joan Durso, Maria Tackett, and George Lindner for all their help!
+Thanks to Joan Durso, Maria Tackett, George Lindner, Mine Çetinkaya-Rundel for all their help!
